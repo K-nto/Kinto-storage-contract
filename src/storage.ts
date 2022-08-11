@@ -68,7 +68,7 @@ export class Storage extends Contract {
   ) {
     console.info('============= START : modifyFile ===========');
 
-    const fileOperationAsBytes = await ctx.stub.getState(fileOperationId); // get the car from chaincode state
+    const fileOperationAsBytes = await ctx.stub.getState(fileOperationId);
     if (!fileOperationAsBytes || fileOperationAsBytes.length === 0) {
       throw new Error(`${fileOperationId} does not exist`);
     }
