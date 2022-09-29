@@ -1,16 +1,14 @@
-import crypto from "crypto";
 import { Operation } from "./operations";
+import {Object, Property} from 'fabric-contract-api';
 
+@Object()
 export class FileOperation {
+  @Property()
   public id: string;
+  @Property()
   public fileHash: string;
+  @Property()
   public wallet: string;
+  @Property()
   public operation: Operation;
-
-  constructor(fileHash: string, wallet: string, operation: Operation) {
-    this.id = crypto.randomBytes(32).toString("hex");
-    this.fileHash = fileHash;
-    this.wallet = wallet;
-    this.operation = operation;
-  }
 }

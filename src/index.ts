@@ -2,7 +2,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Storage } from './storage';
-export { Storage } from './storage';
+import { StorageContract } from './storage';
+export { StorageContract as Storage } from './storage';
 
-export const contracts: any[] = [ Storage ];
+export const contracts: any[] = [ StorageContract ];
