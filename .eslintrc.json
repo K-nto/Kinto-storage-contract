@@ -1,3 +1,5 @@
 {
-  "extends": "./node_modules/gts/"
+    "rules": {
+      "react/react-in-jsx-scope": "off"
+    }
 }
