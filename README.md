@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
+  <img src="resources/Kintoisologo.png" alt="logo" width="200" height="auto" />
   <h1>Kinto Storage Contract</h1>
   
   <h5>
@@ -39,6 +39,8 @@
 - [Acknowledgements](#gem-acknowledgements)
 
 ## :star2: About the Project
+
+This contract allows our microservice to create transactions related to storage operations and interact with the deployed blockchain on hyperledger fabric.
 
 ### :space_invader: Tech Stack
 
@@ -161,9 +163,9 @@ Distributed under the no License. See LICENSE.txt for more information.
 
 ## :handshake: Contact
 
-Federico Javier Parodi - Fedejp - [@linkedin_handle](https://www.linkedin.com/in/fedejp) [@github_handle](https://github.com/Fedejp)
+Federico Javier Parodi - Fedejp - [Linkedin](https://www.linkedin.com/in/fedejp) - [Github](https://github.com/Fedejp)
 
-Carlos Santiago Yanzon - Bizk - [@linkedin_handle](https://www.linkedin.com/in/carlos-santiago-yanzon/) [@github_handle](https://github.com/bizk)
+Carlos Santiago Yanzon - Bizk - [Linkedin](https://www.linkedin.com/in/carlos-santiago-yanzon/) - [Github](https://github.com/bizk)
 
 Project Link: [https://github.com/K-nto](https://github.com/K-nto)
 
