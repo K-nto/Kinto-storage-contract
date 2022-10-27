@@ -1,5 +1,10 @@
 import {Object, Property} from 'fabric-contract-api';
 
+/**
+ * @class Asset
+ * @description This class is used by the contract to create the transactions related to storage operations
+ */
+
 @Object()
 export class Asset {
   @Property()

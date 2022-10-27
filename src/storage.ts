@@ -9,8 +9,17 @@ import {Asset} from './asset';
 import stringify from 'json-stringify-deterministic';
 import sortKeysRecursive from 'sort-keys-recursive';
 
+/**
+ * @class StorageContract
+ * @description Contract for storage operations
+ */
 @Info({title: 'Storage', description: 'Smart contract for trading assets'})
 export class StorageContract extends Contract {
+  /**
+   * @function initLedger
+   * @description Initializes the ledger if not existant and creates a genesis block.
+   * @async
+   */
   @Transaction()
   public async initLedger(ctx: Context) {
     console.info('============= START : Initialize Ledger ===========');
@@ -34,19 +43,34 @@ export class StorageContract extends Contract {
     console.info('============= END : Initialize Ledger ===========');
   }
 
+  /**
+   * @function queryFileOperation
+   * @description gets a specific transaction in the blockchain.
+   * @async
+   * @param (fileOperationTransactionId) Id of the transaction
+   */
   @Transaction(false)
   public async queryFileOperation(
     ctx: Context,
-    fileOperationId: string
+    fileOperationTransactionId: string
   ): Promise<string> {
-    const fileOperationAsBytes = await ctx.stub.getState(fileOperationId); // get the fileOperation from chaincode state
+    const fileOperationAsBytes = await ctx.stub.getState(
+      fileOperationTransactionId
+    ); // get the fileOperation from chaincode state
     if (!fileOperationAsBytes || !fileOperationAsBytes.length) {
-      throw new Error(`${fileOperationId} does not exist`);
+      throw new Error(`${fileOperationTransactionId} does not exist`);
     }
-    console.log(fileOperationAsBytes.toString());
     return fileOperationAsBytes.toString();
   }
 
+  /**
+   * @function createFileOperation
+   * @description creates a transaction for a file operation in the blockchain.
+   * @async
+   * @param (fileHash) hash of the file
+   * @param (wallet) wallet owner
+   * @param (operation) Operation type
+   */
   @Transaction()
   public async createFileOperation(
     ctx: Context,
@@ -70,6 +94,11 @@ export class StorageContract extends Contract {
     console.info('============= END : Create fileOperation ===========');
   }
 
+  /**
+   * @function queryAllFileOperations
+   * @description get all file operation transactions on the blockchain.
+   * @async
+   */
   @Transaction(false)
   @Returns('string')
   public async queryAllFileOperations(ctx: Context): Promise<string> {
@@ -94,6 +123,13 @@ export class StorageContract extends Contract {
     return JSON.stringify(allResults);
   }
 
+  /**
+   * @function modifyFile
+   * @description creates a transaction for a file operation mmodification in the blockchain.
+   * @async
+   * @param (fileOperationId) Id of the transaction
+   * @param (fileHash) hash of the file
+   */
   @Transaction(false)
   public async modifyFile(
     ctx: Context,
